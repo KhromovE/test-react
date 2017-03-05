@@ -8,7 +8,7 @@ import styles from './styles.scss';
 
 const DragHandle = SortableHandle((props) => {
   const { value } = props;
-  return (<List.Content>{value}</List.Content>);
+  return (<List.Content className={styles['app-list-value']}>{value}</List.Content>);
 });
 
 const SortableItem = SortableElement((props) => {

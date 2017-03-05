@@ -5,6 +5,10 @@
     cursor: pointer;
   }
 
+  .app-list-value {
+    @include item-as-pointer();
+  }
+
   .app-list-item-remove {
     @include item-as-pointer();
     color: red;
