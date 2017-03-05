@@ -1,0 +1,20 @@
+.app-list {
+  padding: 1rem 0 1rem 0 !important;
+
+  @mixin item-as-pointer() {
+    cursor: pointer;
+  }
+
+  .app-list-item-remove {
+    @include item-as-pointer();
+    color: red;
+  }
+  .app-list-item-edit {
+    @include item-as-pointer();
+    color: green;
+  }
+}
+
+.app-processing {
+  padding: 1rem 0 1rem 0 !important;
+}
