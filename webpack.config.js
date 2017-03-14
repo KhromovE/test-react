@@ -38,9 +38,7 @@ const COMMON_CONFIG = {
       'react-router',
       'axios',
       'classnames',
-      'react-formal',
-      'yup',
-      'lodash',
+      'react-sortable-hoc',
       'semantic-ui-react',
       'semantic-ui-css/semantic.min.css',
     ],
@@ -84,12 +82,6 @@ const COMMON_CONFIG = {
       NODE_MODULES_PATH,
       APP_PATH,
     ],
-    alias: {
-      components: path.resolve(APP_PATH, 'components'),
-      config: path.resolve(APP_PATH, 'config'),
-      reducers: path.resolve(APP_PATH, 'reducers'),
-      assets: path.resolve(APP_PATH, 'assets'),
-    },
   },
 
   performance: {

@@ -1,12 +1,13 @@
 import axios from 'axios';
 
 const API_ROOT = 'http://207.154.208.41:8080/3/';
+const regexForSplitting = /^\/+|\/+$/g;
 
 function callApi(_method, _path, data) {
   const method = _method.toLowerCase();
 
   // Remove '/' from path
-  const path = _path.replace(/^\/+|\/+$/gm, '');
+  const path = _path.replace(regexForSplitting, '');
 
   const config = {
     method,

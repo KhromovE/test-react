@@ -140,6 +140,7 @@ class TODOList extends Component {
             items={list}
             useDragHandle={true} // eslint-disable-line
             lockAxis="y"
+            distance={10}
             onSortEnd={this.onSortEnd}
             onRemoveItem={this.onRemoveItem}
             onEditItem={this.onEditItem}
@@ -147,7 +148,7 @@ class TODOList extends Component {
           /> :
           <div className={styles['app-processing']}>
             <Message icon>
-              <Icon name="circle notched" loading/>
+              <Icon name="circle notched" loading />
               <Message.Content>
                 <Message.Header>Just one second</Message.Header>
                 We are fetching that content for you.
