@@ -13,7 +13,7 @@ function callApi(_method, _path, data) {
     method,
     url: API_ROOT + path,
     headers: {
-      'Accept': 'application/json',
+      'Accept': 'application/json', // eslint-disable-line
       'Content-Type': 'application/json',
     },
   };

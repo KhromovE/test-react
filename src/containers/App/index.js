@@ -6,7 +6,7 @@ import styles from './styles.scss';
 const App = (props) => {
   const { children } = props;
   return (
-    <div className={styles['app']}>
+    <div className={styles.app}>
       { children }
     </div>
   );

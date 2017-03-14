@@ -14,7 +14,7 @@ const render = () => {
     <AppContainer>
       <Provider store={store}>{router}</Provider>
     </AppContainer>,
-    document.getElementById('root'), // eslint-disable-line
+    document.getElementById('root'), // eslint-disable-line no-undef
   );
 };
 

@@ -7,7 +7,7 @@ import {
   watchEditTODOItem,
 } from './TODO';
 
-export default function* root() {
+export default function* () {
   yield [
     fork(getTODOItems),
     fork(watchGetTODOItems),

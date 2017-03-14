@@ -8,7 +8,7 @@ export function* getTODOItems() {
     items.sort((prev, next) => next.order - prev.order);
     yield put(actions.getTODOItemsSuccess(items));
   } catch (err) {
-    console.warn(err);
+    console.warn(err); // eslint-disable-line
   }
 }
 
@@ -26,7 +26,7 @@ export function* createTODOItem(data) {
     ));
     yield put(actions.createTODOItemSuccess(item));
   } catch (err) {
-    console.warn(err);
+    console.warn(err); // eslint-disable-line
   }
 }
 
@@ -35,7 +35,7 @@ export function* editTODOItem(data) {
     const item = yield call(api.editTODOItem.bind(null, data.id, data.item));
     yield put(actions.editTODOItemSuccess(item));
   } catch (err) {
-    console.warn(err);
+    console.warn(err); // eslint-disable-line
   }
 }
 
@@ -44,7 +44,7 @@ export function* removeTODOItem(data) {
     yield call(api.removeTODOItem.bind(null, data.id));
     yield put(actions.removeTODOItemSuccess(data.id));
   } catch (err) {
-    console.warn(err);
+    console.warn(err); // eslint-disable-line
   }
 }
 

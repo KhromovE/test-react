@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { List, Icon, Checkbox, Message, Modal, Button, Input } from 'semantic-ui-react';
 import { SortableContainer, SortableElement, arrayMove, SortableHandle } from 'react-sortable-hoc';
@@ -78,6 +78,12 @@ class TODOList extends Component {
     this.onSortEnd = this.onSortEnd.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      list: nextProps.list,
+    });
+  }
+
   onRemoveItem(id) {
     this.props.removeTODOItem(id); // eslint-disable-line
   }
@@ -100,6 +106,16 @@ class TODOList extends Component {
     });
   }
 
+  onChangeTitle(data) {
+    this.setState({
+      item: Object.assign({}, this.state.item, { title: data.value }),
+    });
+  }
+
+  onEditItem(id, item) {
+    this.props.editTODOItem(id, item);
+  }
+
   modalClose() {
     this.setState({
       modalOpen: false,
@@ -111,22 +127,6 @@ class TODOList extends Component {
     this.setState({
       modalOpen: true,
       item: Object.assign({}, this.state.list.find(element => element.id === id)),
-    });
-  }
-
-  onEditItem(id, item) {
-    this.props.editTODOItem(id, item);
-  }
-
-  onChangeTitle(data) {
-    this.setState({
-      item: Object.assign({}, this.state.item, { title: data.value }),
-    });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      list: nextProps.list,
     });
   }
 
@@ -187,18 +187,24 @@ class TODOList extends Component {
   }
 }
 
-const mapDispatchToProps = function (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     removeTODOItem: id => dispatch(removeTODOItem(id)),
     editTODOItem: (id, item) => dispatch(editTODOItem(id, item)),
   };
-};
+}
 
-const mapStateToProps = function (store) {
+function mapStateToProps(store) {
   return {
     list: store.TODO.list,
     processing: store.TODO.processing,
   };
+}
+
+TODOList.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  processing: PropTypes.bool.isRequired,
+  editTODOItem: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TODOList);

@@ -5,7 +5,7 @@ const initialState = {
   processing: true,
 };
 
-const TODOReducer = function (state = initialState, action) {
+const TODOReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.GET_TODO_ITEMS_SUCCESS:
       return Object.assign({}, state, {
@@ -16,12 +16,13 @@ const TODOReducer = function (state = initialState, action) {
       return Object.assign({}, state, {
         list: [action.item, ...state.list],
       });
-    case actions.REMOVE_TODO_ITEM_SUCCESS:
+    case actions.REMOVE_TODO_ITEM_SUCCESS: {
       const removedItemIndex = state.list.findIndex(element => element.id === action.id);
       return Object.assign({}, state, {
         list: [...state.list.slice(0, removedItemIndex), ...state.list.slice(removedItemIndex + 1)],
       });
-    case actions.EDIT_TODO_ITEM_SUCCESS:
+    }
+    case actions.EDIT_TODO_ITEM_SUCCESS: {
       const editedItemIndex = state.list.findIndex(element => element.id === action.item.id);
       const list = [
         action.item,
@@ -31,6 +32,7 @@ const TODOReducer = function (state = initialState, action) {
       return Object.assign({}, state, {
         list,
       });
+    }
     default:
       return state;
   }

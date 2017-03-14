@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Input, Button } from 'semantic-ui-react';
 import { createTODOItem } from '../../actions';
@@ -45,14 +45,18 @@ class AddItem extends Component {
   }
 }
 
-const mapDispatchToProps = function (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     createTODOItem: item => dispatch(createTODOItem(item)),
   };
-};
+}
 
-const mapStateToProps = function () {
+function mapStateToProps() {
   return {};
+}
+
+AddItem.propTypes = {
+  createTODOItem: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddItem);
