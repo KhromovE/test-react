@@ -41,7 +41,7 @@ const SortableList = SortableContainer((props) => {
   return (
     <List divided verticalAlign="middle">
       { !items.length ?
-        <div style={styles['app-list-info']}>
+        <div className={styles['app-list-info']}>
           <Message visible>
             No items found
           </Message>
