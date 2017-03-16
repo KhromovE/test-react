@@ -19,7 +19,7 @@ const DEVELOPMENT_CONFIG = {
 
   devServer: {
     hot: true,
-    port: 3001,
+    port: 3000,
     inline: true,
     host: '0.0.0.0',
     historyApiFallback: true,

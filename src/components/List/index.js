@@ -41,9 +41,11 @@ const SortableList = SortableContainer((props) => {
   return (
     <List divided verticalAlign="middle">
       { !items.length ?
-        <Message visible>
-          No items found
-        </Message> :
+        <div style={styles['app-list-info']}>
+          <Message visible>
+            No items found
+          </Message>
+        </div> :
         null
       }
       {items.map((value, index) =>
@@ -146,7 +148,7 @@ class TODOList extends Component {
             onEditItem={this.onEditItem}
             modalShow={this.modalShow}
           /> :
-          <div className={styles['app-processing']}>
+          <div className={styles['app-list-info']}>
             <Message icon>
               <Icon name="circle notched" loading />
               <Message.Content>
